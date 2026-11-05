@@ -21,5 +21,6 @@ flutter test
 ## Progres
 
 - Checkpoint 1: kartu profil statis dengan data Fakhry Firdaus.
+- Checkpoint 2: penghitung pembukaan aplikasi tersimpan dengan SharedPreferences.
 
 Setiap checkpoint diuji, di-commit, dan di-push sebelum checkpoint berikutnya dimulai. Bukti tampilan disimpan di `docs/screenshots`.
