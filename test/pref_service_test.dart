@@ -51,4 +51,33 @@ void main() {
       expect(prefs.profile.toMap(), ProfileData.defaults.toMap());
     }
   });
+  test(
+    'Reset hanya menghapus profil tanpa menghapus tema dan penghitung',
+    () async {
+      SharedPreferences.setMockInitialValues({
+        'open_count': 7,
+        'is_dark_mode': true,
+      });
+      final prefs = await PrefService.init();
+      await prefs.saveProfile(
+        const ProfileData(
+          name: 'Nama uji',
+          title: 'Jabatan uji',
+          bio: 'Bio uji',
+        ),
+      );
+      expect(
+        prefs.debugKeys,
+        containsAll(['profile_data', 'open_count', 'is_dark_mode']),
+      );
+
+      await prefs.clearProfile();
+
+      expect(prefs.profile.toMap(), ProfileData.defaults.toMap());
+      expect(prefs.openCount, 7);
+      expect(prefs.isDarkMode, isTrue);
+      expect(prefs.debugKeys, isNot(contains('profile_data')));
+      expect(prefs.debugKeys, containsAll(['open_count', 'is_dark_mode']));
+    },
+  );
 }

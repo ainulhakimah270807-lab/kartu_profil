@@ -111,4 +111,32 @@ void main() {
     expect(find.text('Ainul Hakimah'), findsOneWidget);
     expect(find.text('Profil tersimpan'), findsOneWidget);
   });
+  testWidgets('Tombol Reset mengembalikan kartu tanpa mengubah pengaturan', (
+    tester,
+  ) async {
+    const edited = ProfileData(
+      name: 'Nama hasil edit',
+      title: 'Jabatan uji',
+      bio: 'Bio uji',
+    );
+    SharedPreferences.setMockInitialValues({
+      'profile_data': edited.toJson(),
+      'is_dark_mode': true,
+      'open_count': 7,
+    });
+    final prefs = await PrefService.init();
+    await tester.pumpWidget(MyApp(prefs: prefs));
+    expect(find.text('Nama hasil edit'), findsOneWidget);
+
+    await tester.ensureVisible(find.text('Reset Profil'));
+    await tester.tap(find.text('Reset Profil'));
+    await tester.pumpAndSettle();
+
+    expect(find.text(ProfileData.defaults.name), findsOneWidget);
+    expect(find.text('Nama hasil edit'), findsNothing);
+    expect(find.text('Profil dikembalikan ke bawaan'), findsOneWidget);
+    expect(find.text('Kartu ini sudah dibuka 7 kali'), findsOneWidget);
+    expect(prefs.isDarkMode, isTrue);
+    expect(prefs.debugKeys, isNot(contains('profile_data')));
+  });
 }

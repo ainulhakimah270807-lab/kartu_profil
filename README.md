@@ -24,5 +24,8 @@ flutter test
 - Checkpoint 2: penghitung pembukaan aplikasi tersimpan dengan SharedPreferences.
 - Checkpoint 3: mode gelap tersimpan dan dimuat sejak frame pertama.
 - Checkpoint 4: edit profil tervalidasi, disimpan sebagai JSON, dan dimuat kembali.
+- Checkpoint 5: reset hanya menghapus data profil; tema dan penghitung tetap tersimpan.
+
+Identitas bawaan aplikasi telah disesuaikan menjadi **Ainul Hakimah** sesuai permintaan pemilik project. Tombol Reset juga kembali ke identitas Ainul Hakimah.
 
 Setiap checkpoint diuji, di-commit, dan di-push sebelum checkpoint berikutnya dimulai. Bukti tampilan disimpan di `docs/screenshots`.

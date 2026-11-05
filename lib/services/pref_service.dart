@@ -14,6 +14,8 @@ class PrefService {
     return PrefService._(await SharedPreferences.getInstance());
   }
 
+  Set<String> get debugKeys => _prefs.getKeys();
+
   int get openCount => _prefs.getInt(_kOpenCount) ?? 0;
 
   bool get isDarkMode => _prefs.getBool(_kDarkMode) ?? false;
