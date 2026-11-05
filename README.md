@@ -29,3 +29,5 @@ flutter test
 Identitas bawaan aplikasi telah disesuaikan menjadi **Ainul Hakimah** sesuai permintaan pemilik project. Tombol Reset juga kembali ke identitas Ainul Hakimah.
 
 Setiap checkpoint diuji, di-commit, dan di-push sebelum checkpoint berikutnya dimulai. Bukti tampilan disimpan di `docs/screenshots`.
+
+Ringkasan hasil pengujian dan tautan commit tersedia di [Bukti Checkpoint](docs/CHECKPOINTS.md).
