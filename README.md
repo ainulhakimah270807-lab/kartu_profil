@@ -23,5 +23,6 @@ flutter test
 - Checkpoint 1: kartu profil statis dengan data Fakhry Firdaus.
 - Checkpoint 2: penghitung pembukaan aplikasi tersimpan dengan SharedPreferences.
 - Checkpoint 3: mode gelap tersimpan dan dimuat sejak frame pertama.
+- Checkpoint 4: edit profil tervalidasi, disimpan sebagai JSON, dan dimuat kembali.
 
 Setiap checkpoint diuji, di-commit, dan di-push sebelum checkpoint berikutnya dimulai. Bukti tampilan disimpan di `docs/screenshots`.

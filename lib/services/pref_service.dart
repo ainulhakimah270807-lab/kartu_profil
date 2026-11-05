@@ -1,11 +1,14 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/profile_data.dart';
+
 class PrefService {
   PrefService._(this._prefs);
 
   final SharedPreferences _prefs;
   static const _kOpenCount = 'open_count';
   static const _kDarkMode = 'is_dark_mode';
+  static const _kProfile = 'profile_data';
 
   static Future<PrefService> init() async {
     return PrefService._(await SharedPreferences.getInstance());
@@ -17,6 +20,24 @@ class PrefService {
 
   Future<void> setDarkMode(bool value) async {
     await _prefs.setBool(_kDarkMode, value);
+  }
+
+  ProfileData get profile {
+    final raw = _prefs.getString(_kProfile);
+    if (raw == null) return ProfileData.defaults;
+    try {
+      return ProfileData.fromJson(raw);
+    } catch (_) {
+      return ProfileData.defaults;
+    }
+  }
+
+  Future<void> saveProfile(ProfileData profile) async {
+    await _prefs.setString(_kProfile, profile.toJson());
+  }
+
+  Future<void> clearProfile() async {
+    await _prefs.remove(_kProfile);
   }
 
   Future<void> increaseOpenCount() async {
