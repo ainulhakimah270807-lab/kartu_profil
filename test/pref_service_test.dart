@@ -19,4 +19,13 @@ void main() {
       expect(second.openCount, 2);
     },
   );
+  test('Pilihan mode gelap dapat dibaca oleh instance berikutnya', () async {
+    final first = await PrefService.init();
+    expect(first.isDarkMode, isFalse);
+    await first.setDarkMode(true);
+
+    final second = await PrefService.init();
+    expect(second.isDarkMode, isTrue);
+    expect(second.openCount, 0);
+  });
 }
