@@ -1,17 +1,25 @@
-# kartu_profil_digital
+# Kartu Profil Digital
 
-A new Flutter project.
+Praktikum local storage Flutter berdasarkan [modul Pak Fakhry](https://github.com/iffakhry/mobile-app-jti/blob/main/12-local-storage-sqlite.md), dikerjakan bertahap sampai checkpoint 5.
 
-## Getting Started
+## Menjalankan aplikasi
 
-This project is a starting point for a Flutter application.
+```powershell
+flutter pub get
+flutter run -d edge
+```
 
-A few resources to get you started if this is your first Flutter project:
+Flutter yang digunakan: 3.47.7 dengan Dart 3.13.5. Dependensi `shared_preferences`, `sqflite`, dan `path` sudah terpasang sesuai Lab 1. Checkpoint 1 sampai 5 dapat dijalankan di browser. SQLite baru digunakan setelah checkpoint 5 dan memerlukan target Android atau iOS sesuai modul.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Pemeriksaan
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```powershell
+flutter analyze
+flutter test
+```
+
+## Progres
+
+- Checkpoint 1: kartu profil statis dengan data Fakhry Firdaus.
+
+Setiap checkpoint diuji, di-commit, dan di-push sebelum checkpoint berikutnya dimulai. Bukti tampilan disimpan di `docs/screenshots`.
